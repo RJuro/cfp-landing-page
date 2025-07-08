@@ -96,6 +96,12 @@ header nav {
     color: var(--primary-color);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .nav-links {
     display: flex;
     gap: 1.5rem;
@@ -116,7 +122,7 @@ header nav {
     width: 0;
     height: 2px;
     background: var(--secondary-color);
-    transition: width 0.3s ease;
+    transition: width 0.3s ease-in-out;
 }
 
 .nav-links a:hover::after, .nav-links a.active::after {
@@ -129,7 +135,19 @@ header nav {
 }
 
 .submit-btn {
-    display: none; /* Hide in nav, will be restyled as a general button */
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+.submit-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /* --- BUTTONS --- */
@@ -166,11 +184,27 @@ header nav {
     color: white;
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION & ANIMATIONS --- */
 #hero {
     background: linear-gradient(45deg, var(--accent-color), white);
     padding: calc(var(--header-height) + 5rem) 0 5rem 0;
     text-align: center;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay for child elements */
+.theme-card.fade-in, .date-item.fade-in {
+    transition-delay: calc(0.1s * var(--i));
 }
 
 #hero .subtitle {
@@ -228,9 +262,7 @@ section:nth-of-type(odd):not(#hero) {
 .theme-card ul { padding-left: 0; }
 .theme-card ul li::before { content: '✓'; }
 
-
 #submission ul { margin: 1.5rem 0; }
-#submission .btn { margin-top: 1rem; }
 
 #dates .dates-list {
     margin-top: 3rem;
@@ -251,9 +283,7 @@ section:nth-of-type(odd):not(#hero) {
     color: var(--primary-color);
     display: block;
 }
-#dates .date-item p {
-    margin: 0.25rem 0 0 0;
-}
+#dates .date-item p { margin: 0.25rem 0 0 0; }
 
 #contact .contact-list {
     margin-top: 1.5rem;
@@ -265,45 +295,137 @@ section:nth-of-type(odd):not(#hero) {
     cursor: pointer;
     border-bottom: 1px dashed var(--secondary-color);
 }
-.copy-email:hover {
-    border-bottom-style: solid;
+.copy-email:hover { border-bottom-style: solid; }
+
+/* --- SUBMISSION FORM --- */
+.submission-form {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-group.form-group-full { grid-column: 1 / -1; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--heading-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+}
+
+.captcha-group {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 4px;
+}
+.captcha-group label {
+    margin: 0;
+}
+#captcha-question {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: 0.5rem;
+}
+.captcha-group input[type="number"] {
+    width: 120px;
+    text-align: center;
+}
+
+/* Custom File Input */
+.file-input { width: 0.1px; height: 0.1px; opacity: 0; overflow: hidden; position: absolute; z-index: -1; }
+.file-label {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 4px;
+    cursor: pointer; transition: border-color 0.3s;
+}
+.file-label:hover { border-color: var(--secondary-color); }
+.file-label-text {
+    color: #666; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; padding-right: 1rem;
+}
+.file-button {
+    background-color: var(--light-gray); color: var(--heading-color);
+    padding: 0.5rem 1rem; border-radius: 4px; font-weight: 500;
+}
+
+/* Honeypot field */
+.form-group-honeypot { position: absolute; left: -9999px; opacity: 0; }
+
+.form-footer {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem;
+}
+
+#form-status { font-weight: 500; text-align: center; }
+#form-status.success { color: #28a745; }
+#form-status.error { color: #dc3545; }
+
 
 /* --- FOOTER --- */
 footer {
-    background: var(--heading-color);
-    color: var(--light-gray);
-    padding: 2rem 0;
-    text-align: center;
+    background: var(--heading-color); color: var(--light-gray);
+    padding: 2rem 0; text-align: center;
 }
 
 /* --- BACK TO TOP BUTTON --- */
 #back-to-top-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--secondary-color);
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--secondary-color); color: white;
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
+    opacity: 0; visibility: hidden; transform: translateY(20px);
     transition: all 0.3s ease;
 }
-#back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-#back-to-top-btn:hover {
-    background: var(--primary-color);
-}
+#back-to-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#back-to-top-btn:hover { background: var(--primary-color); }
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 992px) {
@@ -313,33 +435,20 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links {
-        position: fixed;
-        top: var(--header-height);
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - var(--header-height));
+        display: flex; position: fixed;
+        top: var(--header-height); right: -100%;
+        width: 100%; height: calc(100vh - var(--header-height));
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(5px);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 3rem;
-        gap: 2rem;
+        flex-direction: column; align-items: center;
+        padding-top: 3rem; gap: 2rem;
         transition: right 0.4s ease-in-out;
     }
-    .nav-links.active {
-        right: 0;
-    }
+    .nav-links.active { right: 0; }
     .nav-links a { font-size: 1.2rem; }
-
+    
+    .nav-right .submit-btn { display: none; }
     .menu-icon { display: block; }
     
-    header .submit-btn { /* Show the original button in the nav on mobile */
-        display: inline-block;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-        background: var(--secondary-color);
-        color: white;
-        border-radius: 5px;
-    }
-    .nav-links .submit-btn { display: none; } /* Hide the duplicate */
+    .form-grid { grid-template-columns: 1fr; gap: 0; }
 }
