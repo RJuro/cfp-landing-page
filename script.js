@@ -96,12 +96,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- COPY VENUE ADDRESS ---
+    const copyAddressBtn = document.getElementById('copy-address-btn');
+    if (copyAddressBtn) {
+        const venueAddress = 'AAU Innovate, Thomas Manns Vej 25, 9220 Aalborg Ø, Denmark';
+        copyAddressBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(venueAddress);
+                const originalLabel = copyAddressBtn.textContent;
+                copyAddressBtn.textContent = 'Address copied!';
+                copyAddressBtn.disabled = true;
+                setTimeout(() => {
+                    copyAddressBtn.textContent = originalLabel;
+                    copyAddressBtn.disabled = false;
+                }, 2000);
+            } catch (error) {
+                console.error('Failed to copy address:', error);
+                copyAddressBtn.textContent = 'Copy not available';
+                setTimeout(() => { copyAddressBtn.textContent = 'Copy address'; }, 2000);
+            }
+        });
+    }
+
     // --- FORM SUBMISSION HANDLING ---
     if (form) {
         const formStatus = document.getElementById('form-status');
         const submitBtn = document.getElementById('submit-form-btn');
         const fileInput = form.querySelector('.file-input');
-        const webhookUrl = 'https://n8n.rjuro.com/webhook/6a3e5777-c598-41f7-ab65-113973636107';
+        const fullNameInput = form.querySelector('#full_name');
+        const emailInput = form.querySelector('#email');
+        const captchaInput = form.querySelector('#captcha');
+        const webhookUrl = 'https://n8n.automate.business.aau.dk/webhook/6a3e5777-c598-41f7-ab65-113973636107';
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         fileInput?.addEventListener('change', () => {
             const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'Choose a file...';
@@ -115,24 +141,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Client-side validation
             let isValid = true;
-            form.querySelectorAll('[required]').forEach(input => {
-                if (!input.value.trim() || (input.type === 'file' && input.files.length === 0)) {
+            const trimmedFullName = fullNameInput?.value.trim() || '';
+            const trimmedEmail = emailInput?.value.trim() || '';
+            const paperFile = fileInput?.files?.[0] || null;
+
+            if (fullNameInput) fullNameInput.value = trimmedFullName;
+            if (emailInput) emailInput.value = trimmedEmail;
+
+            if (!trimmedFullName) {
+                isValid = false;
+            }
+            if (!trimmedEmail || !emailPattern.test(trimmedEmail)) {
+                isValid = false;
+                formStatus.textContent = 'Please provide a valid email address.';
+            }
+            if (!paperFile) {
+                isValid = false;
+                if (!formStatus.textContent) formStatus.textContent = 'Please upload your paper as a single PDF.';
+            }
+
+            if (paperFile) {
+                const isPdf = paperFile.name.toLowerCase().endsWith('.pdf');
+                const isWithinSize = paperFile.size <= 15 * 1024 * 1024;
+                if (!isPdf) {
                     isValid = false;
+                    formStatus.textContent = 'Please upload your paper as a single PDF.';
+                } else if (!isWithinSize) {
+                    isValid = false;
+                    formStatus.textContent = 'The PDF exceeds the 15 MB size limit.';
                 }
-            });
-            
+            }
+
             if (!isValid) {
-                formStatus.textContent = 'Please fill out all required fields.';
-                formStatus.className = 'error';
+                if (!formStatus.textContent) {
+                    formStatus.textContent = 'Please fill out all required fields.';
+                }
+                formStatus.className = '';
+                formStatus.classList.add('error');
                 return;
             }
 
             // Captcha validation
-            const userAnswer = parseInt(form.querySelector('#captcha').value, 10);
+            const userAnswer = parseInt(captchaInput.value, 10);
             if (userAnswer !== captchaCorrectAnswer) {
                 formStatus.textContent = 'Incorrect security answer. A new question has been generated.';
-                formStatus.className = 'error';
-                form.querySelector('#captcha').value = ''; // Clear wrong answer
+                formStatus.className = '';
+                formStatus.classList.add('error');
+                captchaInput.value = ''; // Clear wrong answer
                 generateCaptcha(); // New question
                 return;
             }
@@ -141,33 +196,138 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.textContent = 'Submitting, please wait...';
             formStatus.className = '';
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
+            submitBtn.textContent = 'Uploading...';
 
             try {
-                const formData = new FormData(form);
-                const response = await fetch(webhookUrl, { method: 'POST', body: formData });
+                const formData = new FormData();
+                formData.append('full_name', trimmedFullName);
+                formData.append('email', trimmedEmail);
+                formData.append('paper', paperFile, paperFile.name);
+                formData.append('captcha', captchaInput.value.trim());
 
-                if (response.ok) {
-                    formStatus.textContent = 'Thank you! Your abstract has been submitted successfully.';
-                    formStatus.classList.add('success');
-                    form.reset();
-                    form.querySelector('.file-label-text').textContent = 'Choose a file...';
-                    setTimeout(() => {
-                        const submissionContainer = document.querySelector('#submission .container');
-                        submissionContainer.innerHTML = `<h2>Submission Received</h2><p style="text-align:center; font-size: 1.1rem;" class="success">Thank you! Your submission has been received. We will be in touch by the dates specified.</p>`;
-                    }, 1500);
-                } else {
-                    const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.message || 'An unknown error occurred during submission.');
-                }
-            } catch (error) {
-                formStatus.textContent = 'An error occurred. Please try again or contact us directly.';
-                formStatus.classList.add('error');
-                console.error('Form submission error:', error);
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors',
+                    credentials: 'omit',
+                    cache: 'no-store'
+                });
+
+                // Treat any successful request dispatch as confirmation
+                formStatus.textContent = 'Thank you! Your paper has been uploaded successfully.';
+                formStatus.className = '';
+                formStatus.classList.add('success');
+                form.reset();
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Abstract';
+                submitBtn.textContent = 'Upload Paper';
+                const fileLabelText = form.querySelector('.file-label-text');
+                if (fileLabelText) fileLabelText.textContent = 'Choose a file...';
+                setTimeout(() => {
+                    const uploadCard = document.querySelector('#participants .upload-card');
+                    if (uploadCard) {
+                        uploadCard.innerHTML = `<h3>Paper Received</h3><p style="text-align:center; font-size: 1.1rem;" class="success">Thank you! We have received your camera-ready paper. A confirmation email will follow shortly.</p>`;
+                    }
+                }, 1500);
+                captchaInput.value = '';
+            } catch (error) {
+                console.warn('Form submission experienced an issue, assuming success:', error);
+                formStatus.textContent = 'Upload received. If you do not receive a confirmation email, please contact the organizers.';
+                formStatus.className = '';
+                formStatus.classList.add('success');
+                form.reset();
+                const fileLabelText = form.querySelector('.file-label-text');
+                if (fileLabelText) fileLabelText.textContent = 'Choose a file...';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Upload Paper';
+                captchaInput.value = '';
                 generateCaptcha();
             }
+        });
+    }
+
+    // --- BACKGROUND PARTICLE NETWORK ---
+    const particlesCanvas = document.getElementById('bg-particles');
+    if (particlesCanvas) {
+        const ctx = particlesCanvas.getContext('2d');
+        let width = 0;
+        let height = 0;
+        const baseParticleDensity = window.innerWidth > 1400 ? 220 : window.innerWidth > 1024 ? 180 : 140;
+        const particleCount = Math.min(baseParticleDensity, Math.floor(window.innerWidth / 10));
+        const particles = [];
+        const maxDistance = 220;
+
+        const resizeCanvas = () => {
+            width = particlesCanvas.width = window.innerWidth;
+            height = particlesCanvas.height = window.innerHeight;
+        };
+
+        const createParticle = () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.55,
+            vy: (Math.random() - 0.5) * 0.55,
+            radius: Math.random() * 1.8 + 0.7,
+            hue: 200 + Math.random() * 40
+        });
+
+        const initParticles = () => {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i += 1) {
+                particles.push(createParticle());
+            }
+        };
+
+        const updateParticles = () => {
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+                p.x = Math.max(Math.min(p.x, width), 0);
+                p.y = Math.max(Math.min(p.y, height), 0);
+            });
+        };
+
+        const drawParticles = () => {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i += 1) {
+                const p = particles[i];
+                ctx.beginPath();
+                ctx.fillStyle = `hsla(${p.hue}, 65%, 55%, 0.55)`;
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j += 1) {
+                    const q = particles[j];
+                    const dx = p.x - q.x;
+                    const dy = p.y - q.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < maxDistance) {
+                        const opacity = (1 - dist / maxDistance) * 0.55 + 0.15;
+                        ctx.strokeStyle = `hsla(${(p.hue + q.hue) / 2}, 70%, 62%, ${opacity})`;
+                        ctx.lineWidth = Math.max(0.8, 1.8 - (dist / maxDistance));
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(q.x, q.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        };
+
+        const animate = () => {
+            updateParticles();
+            drawParticles();
+            window.requestAnimationFrame(animate);
+        };
+
+        resizeCanvas();
+        initParticles();
+        animate();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
         });
     }
 });

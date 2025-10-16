@@ -1,0 +1,18 @@
+<svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="masshineTitle masshineDesc">
+  <title id="masshineTitle">MASSHINE Network Logo</title>
+  <desc id="masshineDesc">Stylised MASSHINE logotype with connected nodes.</desc>
+  <defs>
+    <linearGradient id="masshineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003366"/>
+      <stop offset="100%" stop-color="#007acc"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="8.5" width="159" height="31" rx="15.5" fill="none" stroke="url(#masshineGradient)" stroke-width="1"/>
+  <text x="16" y="32" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#003366">MASSHINE</text>
+  <circle cx="120" cy="14" r="4" fill="#007acc" opacity="0.85"/>
+  <circle cx="142" cy="28" r="4" fill="#003366" opacity="0.85"/>
+  <circle cx="108" cy="30" r="3" fill="#005a99" opacity="0.85"/>
+  <line x1="120" y1="14" x2="142" y2="28" stroke="#005a99" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="120" y1="14" x2="108" y2="30" stroke="#0090ff" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="108" y1="30" x2="142" y2="28" stroke="#001f3f" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+</svg>

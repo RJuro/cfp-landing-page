@@ -1,0 +1,106 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "6a3e5777-c598-41f7-ab65-113973636107",
+        "options": {
+          "allowedOrigins": "https://masshine-workshop-2025.rjuro.com",
+          "ignoreBots": true
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        -160
+      ],
+      "id": "1881f5de-c61e-4fe6-a9b7-a14f6784bde6",
+      "name": "Webhook",
+      "webhookId": "6a3e5777-c598-41f7-ab65-113973636107"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "pnrem0eltx9z2ia",
+        "table": "muljx0gfasfh6sw",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "Paper",
+              "binaryData": true,
+              "binaryProperty": "paper"
+            },
+            {
+              "fieldName": "Name",
+              "fieldValue": "={{ $json.body.full_name }}"
+            },
+            {
+              "fieldName": "Email",
+              "fieldValue": "={{ $json.body.email }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        32,
+        -160
+      ],
+      "id": "d68dfb19-0422-4ff8-a399-ea1cefdd357c",
+      "name": "Create a row",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "DkJsKrdCF1avft4n",
+          "name": "NocoDB Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        336,
+        -160
+      ],
+      "id": "bebe845e-0f25-4529-8318-b9557f1df162",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5961d7ce06cb794625eaa86a5e7c2b3ded2cf3430ffe047e0823d598863f077c"
+  }
+}
