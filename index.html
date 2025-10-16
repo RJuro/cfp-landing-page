@@ -7,15 +7,17 @@
     <!-- Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="bg-particles" aria-hidden="true"></canvas>
+    <div id="particles-js"></div>
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="#">AAU/MASSHINE Workshop</a>
+                <a href="#hero" aria-label="AAU/MASSHINE Workshop home">
+                    <img src="assets/masshine_logo_blu.png.webp" alt="MASSHINE workshop logo" class="nav-logo">
+                </a>
             </div>
             <div class="nav-right">
                 <ul class="nav-links">
@@ -38,11 +40,13 @@
     <main>
         <section id="hero" class="fade-in">
             <div class="container">
-                <h1>Applying LLMs and GenAI in Innovation Economics</h1>
-                <p class="subtitle">A two-day workshop at Aalborg University Innovation Hub • 8–9 December 2025</p>
-                <div class="hero-buttons">
-                    <a href="#programme" class="btn btn-primary">View Programme</a>
-                    <a href="#participants" class="btn btn-secondary">Participant Resources</a>
+                <div class="hero-content">
+                    <h1>Applying LLMs and GenAI in Innovation Economics</h1>
+                    <p class="subtitle">A two-day workshop at Aalborg University Innovation Hub • 8–9 December 2025</p>
+                    <div class="hero-buttons">
+                        <a href="#programme" class="btn btn-primary">View Programme</a>
+                        <a href="#participants" class="btn btn-secondary">Participant Resources</a>
+                    </div>
                 </div>
                 <div class="hero-brand">
                     <img src="assets/masshine_logo_blu.png.webp" alt="MASSHINE network logo" class="masshine-logo">
@@ -55,11 +59,13 @@
                 <h2>Why This Workshop</h2>
                 <p>Large Language Models and Generative AI are reshaping how economists study innovation, enabling causal insights, richer measurement, and new views on technological change. This workshop convenes researchers who advance these methods in innovation economics, share practical playbooks, and surface emerging risks around data quality, reproducibility, and responsible deployment.</p>
                 <p>With the call for papers closed, this site now focuses on coordination for confirmed participants. Keep an eye on programme drafts and practical updates as we move toward December.</p>
-                <ul class="overview-highlights">
-                    <li>Programme outline (below) will be iterated with final times and rooms in November.</li>
-                    <li>Full-paper submissions for the Paper Development track are due 17 October via the upload form.</li>
-                    <li>Reviewer assignments circulate 7 November, with revisions requested by 28 November.</li>
-                </ul>
+                <div class="highlight-box">
+                    <ul class="overview-highlights">
+                        <li>Programme outline (below) will be iterated with final times and rooms in November.</li>
+                        <li>Full manuscript submissions for the Paper Development track are due 17 October via the <a href="#submission-form">upload form</a>.</li>
+                        <li>Reviews circulate 7 November, with revisions requested by 28 November.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -161,11 +167,17 @@
 
                 <div class="resource-grid">
                     <div class="resource-card fade-in">
+                        <div class="resource-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
                         <h3>Paper Library</h3>
                         <p>Accepted contributions will be listed here with download links once uploads are verified. Expect access to be shared in late November.</p>
                         <span class="badge badge-soon">Coming soon</span>
                     </div>
                     <div class="resource-card fade-in">
+                        <div class="resource-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </div>
                         <h3>Review Portal</h3>
                         <p>Review assignments (two per Paper Development paper) will be emailed on 7 November together with the evaluation template and access code. A lightweight submission form will appear here.</p>
                         <span class="badge badge-soon">Coming soon</span>
@@ -173,8 +185,8 @@
                 </div>
 
                 <div class="upload-card fade-in">
-                    <h3>Camera-Ready Upload</h3>
-                    <p class="upload-intro">Use the form below to provide the full paper (Paper Development track) or deck/extended abstract (Idea Development track). Files feed directly into the review workflow.</p>
+                    <h3>Full Manuscript Upload</h3>
+                    <p class="upload-intro">Use the form below to provide the full manuscript (Paper Development track only). We will have a final camera ready submission form later. Files feed directly into the review workflow.</p>
                     <ul class="upload-checklist">
                         <li>Submit by <strong>17 October 2025</strong> (midnight CET).</li>
                         <li>Single PDF file, max 15&nbsp;MB, named <code>LastName-ShortTitle.pdf</code>.</li>
@@ -190,6 +202,10 @@
                             <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" id="email" name="email" placeholder="e.g., jane.doe@university.edu" required>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="paper_title">Current Paper Title</label>
+                                <textarea id="paper_title" name="paper_title" placeholder="Provide the latest title exactly as it should appear in the programme." rows="2" required></textarea>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="paper">Upload Paper (PDF only)</label>
@@ -212,7 +228,7 @@
                         </div>
 
                         <div class="form-footer">
-                             <button type="submit" id="submit-form-btn" class="btn btn-primary">Upload Paper</button>
+                             <button type="submit" id="submit-form-btn" class="btn btn-primary">Upload Manuscript</button>
                              <div id="form-status"></div>
                         </div>
                     </form>
@@ -227,6 +243,9 @@
 
                 <div class="info-grid">
                     <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
                         <h3>Location</h3>
                         <p><strong>AAU Innovate</strong><br>Thomas Manns Vej 25<br>9220 Aalborg Ø, Denmark</p>
                         <div class="address-actions">
@@ -242,19 +261,25 @@
                         </div>
                     </div>
                     <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
                         <h3>Travel</h3>
                         <ul>
-                            <li><strong>By air:</strong> Aalborg Airport (AAL) with direct train into the city and plusbus 2 from the centre to AAU Innovate (~25&nbsp;min).</li>
+                            <li><strong>By air:</strong> Aalborg Airport (AAL) with direct train and bus into the city and fast plusbus 2 from the centre to AAU Innovate (~25&nbsp;min).</li>
                             <li><strong>By rail:</strong> Aalborg Station connects hourly to Aarhus, Copenhagen, and Hamburg. Plusbus line 2 departs outside the station.</li>
                             <li>Airport taxi to the city runs ~250&nbsp;DKK; Rejsekort/Rejsebillet apps cover local transport. <a href="https://www.rejsekort.dk/da/rejsekort_app?sc_lang=en" target="_blank" rel="noopener">Rejsekort app</a> / <a href="https://www.rejsekort.dk/Rejsebillet" target="_blank" rel="noopener">Rejsebillet</a>.</li>
                         </ul>
                     </div>
                     <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        </div>
                         <h3>Accommodation</h3>
                         <ul>
-                            <li>Four Points Flex by Sheraton (plusbus line 2 to campus).</li>
-                            <li>B&amp;B Hotel Aalborg (central, good bus links).</li>
-                            <li>Limited AAU guest rooms—contact the organising committee for availability.</li>
+                            <li>These are just some recommendations that you can consider. Around 100 EUR/night and well located.</li>
+                            <li>Four Points Flex by Sheraton (plusbus line 2 to campus infront of the door).</li>
+                            <li>B&B Hotel Aalborg (central, plusbus line 2 to campus infront of the door).</li>
                         </ul>
                     </div>
                 </div>
@@ -266,7 +291,7 @@
         <section id="organizers">
             <div class="container fade-in">
                 <h2>Committees & Hosts</h2>
-                <p>The workshop is hosted by Aalborg University Business School and the MASSHINE network, with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.</p>
+                <p>The workshop is hosted by Aalborg University Business School and the MASSHINE network (thanks to the MASSHINE and the SSH faculty at AAU for the generous funding), with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.</p>
 
                 <div class="committee-container">
                     <div class="committee">
@@ -345,6 +370,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </a>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

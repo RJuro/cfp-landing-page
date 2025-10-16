@@ -5,6 +5,98 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top-btn');
     const form = document.getElementById('submission-form');
     
+    // --- PARTICLES.JS CONFIGURATION ---
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#003366', '#007acc', '#0066aa']
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#007acc',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+    
     // --- CAPTCHA LOGIC ---
     let captchaCorrectAnswer = 0;
     const captchaQuestionEl = document.getElementById('captcha-question');
@@ -17,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             captchaQuestionEl.textContent = `${num1} + ${num2} = ?`;
         }
     }
-    generateCaptcha(); // Initial generation
+    generateCaptcha();
 
     // --- HEADER SCROLL EFFECT ---
     if (header) {
@@ -125,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const fileInput = form.querySelector('.file-input');
         const fullNameInput = form.querySelector('#full_name');
         const emailInput = form.querySelector('#email');
+        const paperTitleInput = form.querySelector('#paper_title');
         const captchaInput = form.querySelector('#captcha');
         const webhookUrl = 'https://n8n.automate.business.aau.dk/webhook/6a3e5777-c598-41f7-ab65-113973636107';
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -137,16 +230,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (form.querySelector('#website').value) return; // Honeypot check
+            if (form.querySelector('#website').value) return;
 
             // Client-side validation
             let isValid = true;
             const trimmedFullName = fullNameInput?.value.trim() || '';
             const trimmedEmail = emailInput?.value.trim() || '';
+            const trimmedTitle = paperTitleInput?.value.trim() || '';
             const paperFile = fileInput?.files?.[0] || null;
 
             if (fullNameInput) fullNameInput.value = trimmedFullName;
             if (emailInput) emailInput.value = trimmedEmail;
+            if (paperTitleInput) paperTitleInput.value = trimmedTitle;
 
             if (!trimmedFullName) {
                 isValid = false;
@@ -155,9 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
                 formStatus.textContent = 'Please provide a valid email address.';
             }
+            if (!trimmedTitle) {
+                isValid = false;
+                if (!formStatus.textContent) formStatus.textContent = 'Please include your current paper title.';
+            }
             if (!paperFile) {
                 isValid = false;
-                if (!formStatus.textContent) formStatus.textContent = 'Please upload your paper as a single PDF.';
+                if (!formStatus.textContent) formStatus.textContent = 'Please upload your manuscript as a single PDF.';
             }
 
             if (paperFile) {
@@ -165,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isWithinSize = paperFile.size <= 15 * 1024 * 1024;
                 if (!isPdf) {
                     isValid = false;
-                    formStatus.textContent = 'Please upload your paper as a single PDF.';
+                    formStatus.textContent = 'Please upload your manuscript as a single PDF.';
                 } else if (!isWithinSize) {
                     isValid = false;
                     formStatus.textContent = 'The PDF exceeds the 15 MB size limit.';
@@ -187,8 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.textContent = 'Incorrect security answer. A new question has been generated.';
                 formStatus.className = '';
                 formStatus.classList.add('error');
-                captchaInput.value = ''; // Clear wrong answer
-                generateCaptcha(); // New question
+                captchaInput.value = '';
+                generateCaptcha();
                 return;
             }
 
@@ -202,6 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData();
                 formData.append('full_name', trimmedFullName);
                 formData.append('email', trimmedEmail);
+                formData.append('paper_title', trimmedTitle);
                 formData.append('paper', paperFile, paperFile.name);
                 formData.append('captcha', captchaInput.value.trim());
 
@@ -213,19 +313,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     cache: 'no-store'
                 });
 
-                // Treat any successful request dispatch as confirmation
-                formStatus.textContent = 'Thank you! Your paper has been uploaded successfully.';
+                formStatus.textContent = 'Thank you! Your manuscript has been uploaded successfully.';
                 formStatus.className = '';
                 formStatus.classList.add('success');
                 form.reset();
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Upload Paper';
+                submitBtn.textContent = 'Upload Manuscript';
                 const fileLabelText = form.querySelector('.file-label-text');
                 if (fileLabelText) fileLabelText.textContent = 'Choose a file...';
                 setTimeout(() => {
                     const uploadCard = document.querySelector('#participants .upload-card');
                     if (uploadCard) {
-                        uploadCard.innerHTML = `<h3>Paper Received</h3><p style="text-align:center; font-size: 1.1rem;" class="success">Thank you! We have received your camera-ready paper. A confirmation email will follow shortly.</p>`;
+                        uploadCard.innerHTML = `<h3>Manuscript Received</h3><p style="text-align:center; font-size: 1.1rem;" class="success">Thank you! We have received your full manuscript. A confirmation email will follow shortly.</p>`;
                     }
                 }, 1500);
                 captchaInput.value = '';
@@ -238,96 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const fileLabelText = form.querySelector('.file-label-text');
                 if (fileLabelText) fileLabelText.textContent = 'Choose a file...';
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Upload Paper';
+                submitBtn.textContent = 'Upload Manuscript';
                 captchaInput.value = '';
                 generateCaptcha();
             }
-        });
-    }
-
-    // --- BACKGROUND PARTICLE NETWORK ---
-    const particlesCanvas = document.getElementById('bg-particles');
-    if (particlesCanvas) {
-        const ctx = particlesCanvas.getContext('2d');
-        let width = 0;
-        let height = 0;
-        const baseParticleDensity = window.innerWidth > 1400 ? 220 : window.innerWidth > 1024 ? 180 : 140;
-        const particleCount = Math.min(baseParticleDensity, Math.floor(window.innerWidth / 10));
-        const particles = [];
-        const maxDistance = 220;
-
-        const resizeCanvas = () => {
-            width = particlesCanvas.width = window.innerWidth;
-            height = particlesCanvas.height = window.innerHeight;
-        };
-
-        const createParticle = () => ({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.55,
-            vy: (Math.random() - 0.5) * 0.55,
-            radius: Math.random() * 1.8 + 0.7,
-            hue: 200 + Math.random() * 40
-        });
-
-        const initParticles = () => {
-            particles.length = 0;
-            for (let i = 0; i < particleCount; i += 1) {
-                particles.push(createParticle());
-            }
-        };
-
-        const updateParticles = () => {
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-                p.x = Math.max(Math.min(p.x, width), 0);
-                p.y = Math.max(Math.min(p.y, height), 0);
-            });
-        };
-
-        const drawParticles = () => {
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i += 1) {
-                const p = particles[i];
-                ctx.beginPath();
-                ctx.fillStyle = `hsla(${p.hue}, 65%, 55%, 0.55)`;
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = i + 1; j < particles.length; j += 1) {
-                    const q = particles[j];
-                    const dx = p.x - q.x;
-                    const dy = p.y - q.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < maxDistance) {
-                        const opacity = (1 - dist / maxDistance) * 0.55 + 0.15;
-                        ctx.strokeStyle = `hsla(${(p.hue + q.hue) / 2}, 70%, 62%, ${opacity})`;
-                        ctx.lineWidth = Math.max(0.8, 1.8 - (dist / maxDistance));
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(q.x, q.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        };
-
-        const animate = () => {
-            updateParticles();
-            drawParticles();
-            window.requestAnimationFrame(animate);
-        };
-
-        resizeCanvas();
-        initParticles();
-        animate();
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            initParticles();
         });
     }
 });

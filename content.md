@@ -41,7 +41,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 
 ### Highlight List
 - Programme outline (below) will be iterated with final times and rooms in November.
-- Full-paper submissions for the Paper Development track are due 17 October via the upload form.
+- Full manuscript submissions for the Paper Development track are due 17 October via the [upload form](#submission-form).
 - Reviewer assignments circulate 7 November, with revisions requested by 28 November.
 
 ---
@@ -98,22 +98,23 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
    - Badge: Coming soon
 
 ### Upload Card
-- **Heading:** Camera-Ready Upload
-- **Intro:** Use the form below to provide the full paper (Paper Development track) or deck/extended abstract (Idea Development track). Files feed directly into the review workflow.
+- **Heading:** Full Manuscript Upload
+- **Intro:** Use the form below to provide the full manuscript (Paper Development track only). We will have a final camera ready submission form later. Files feed directly into the review workflow.
 - **Checklist:**
   1. Submit by **17 October 2025** (midnight CET).
-  2. Single PDF file, max 15 MB, named `LastName-ShortTitle.pdf`.
+  2. Single PDF file, max 15 MB, named `LastName-ShortTitle.pdf`.
   3. Resubmissions before 28 November will overwrite the previous file.
 
 ### Upload Form Fields (minimal)
 1. Full Name (text, required)
 2. Email Address (email, required)
-3. Paper Upload (PDF, required, max 15 MB)
-4. Captcha (simple arithmetic, required)
-5. Honeypot field (`website`) hidden from users
+3. Current Paper Title (multi-line text, required)
+4. Paper Upload (PDF, required)
+5. Captcha (simple arithmetic, required)
+6. Honeypot field (`website`) hidden from users
 
 ### Success Message
-- After successful submission, replace the upload card with: “**Paper Received** — Thank you! We have received your camera-ready paper. A confirmation email will follow shortly.”
+- After successful submission, the form should be replaced with: “**Manuscript Received** — Thank you! We have received your full manuscript. A confirmation email will follow shortly.”
 
 ---
 
@@ -130,13 +131,12 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
    - Actions: “Copy address”, “Open in Google Maps”, “Open in Apple Maps”
    - Map: Google Maps embed centred at 57.014708, 9.975291
 2. **Travel**
-   - By air: Aalborg Airport (AAL) with direct train into the city and plusbus 2 from the centre to AAU Innovate (~25 min).
-   - By rail: Aalborg Station connects hourly to Aarhus, Copenhagen, and Hamburg. Plusbus line 2 departs outside the station.
-   - Airport taxi to the city runs ~250 DKK; Rejsekort/Rejsebillet apps cover local transport. Links: Rejsekort app / Rejsebillet.
+   - **By air:** Aalborg Airport (AAL) with direct train and bus into the city and fast plusbus 2 from the centre to AAU Innovate (~25 min).
+   - **By rail:** Aalborg Station connects hourly to Aarhus, Copenhagen, and Hamburg. Plusbus line 2 departs outside the station.
+   - Airport taxi to the city runs ~250 DKK; Rejsekort/Rejsebillet apps cover local transport. Links: [Rejsekort app](https://www.rejsekort.dk/da/rejsekort_app?sc_lang=en) / [Rejsebillet](https://www.rejsekort.dk/Rejsebillet).
 3. **Accommodation**
-   - Four Points Flex by Sheraton (plusbus line 2 to campus).
-   - B&B Hotel Aalborg (central, good bus links).
-   - Limited AAU guest rooms—contact the organising committee for availability.
+   - Four Points Flex by Sheraton (plusbus line 2 to campus infront of the dooer).
+   - B&B Hotel Aalborg (central, plusbus line 2 to campus infront of the dooer).
 
 ### Logistics Note
 - A PDF with detailed logistics and local suggestions will be circulated in mid-November. Reach out via email if you require visa support letters.
@@ -148,7 +148,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 - Committees & Hosts
 
 ### Intro Copy
-- The workshop is hosted by Aalborg University Business School and the MASSHINE network, with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.
+- The workshop is hosted by Aalborg University Business School and the MASSHINE network (thanks to the MASSHINE and the SSH faculaty at aau for the generous funding), with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.
 
 ### Committees
 1. **Scientific Committee**
