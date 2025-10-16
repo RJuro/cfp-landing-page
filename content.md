@@ -135,8 +135,8 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
    - **By rail:** Aalborg Station connects hourly to Aarhus, Copenhagen, and Hamburg. Plusbus line 2 departs outside the station.
    - Airport taxi to the city runs ~250 DKK; Rejsekort/Rejsebillet apps cover local transport. Links: [Rejsekort app](https://www.rejsekort.dk/da/rejsekort_app?sc_lang=en) / [Rejsebillet](https://www.rejsekort.dk/Rejsebillet).
 3. **Accommodation**
-   - Four Points Flex by Sheraton (plusbus line 2 to campus infront of the dooer).
-   - B&B Hotel Aalborg (central, plusbus line 2 to campus infront of the dooer).
+   - Four Points Flex by Sheraton (plusbus line 2 to campus infront of the door).
+   - B&B Hotel Aalborg (central, plusbus line 2 to campus infront of the door).
 
 ### Logistics Note
 - A PDF with detailed logistics and local suggestions will be circulated in mid-November. Reach out via email if you require visa support letters.
@@ -148,7 +148,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 - Committees & Hosts
 
 ### Intro Copy
-- The workshop is hosted by Aalborg University Business School and the MASSHINE network (thanks to the MASSHINE and the SSH faculaty at aau for the generous funding), with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.
+- The workshop is hosted by Aalborg University Business School and the MASSHINE network (thanks to the MASSHINE and the SSH faculty at AAU for the generous funding), with contributions from partners at the University of Strasbourg, Copenhagen Business School, the University of Bremen, and UNU-MERIT. Together we curate an agenda that bridges methodological depth with policy relevance across innovation economics.
 
 ### Committees
 1. **Scientific Committee**
