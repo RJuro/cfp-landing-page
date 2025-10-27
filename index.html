@@ -29,7 +29,7 @@
                     <li><a href="#dates">Timeline</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#programme" class="submit-btn">Programme</a>
+                <a href="#participants" class="submit-btn">Participant Resources</a>
                 <div class="menu-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </div>
@@ -44,8 +44,7 @@
                     <h1>Applying LLMs and GenAI in Innovation Economics</h1>
                     <p class="subtitle">Aalborg University Business School • 8–9 December 2025</p>
                     <div class="hero-buttons">
-                        <a href="#programme" class="btn btn-primary">View Programme</a>
-                        <a href="#participants" class="btn btn-secondary">Participant Resources</a>
+                        <a href="#participants" class="btn btn-primary">Participant Resources</a>
                     </div>
                 </div>
                 <div class="hero-brand">
@@ -62,7 +61,7 @@
                 <div class="highlight-box">
                     <ul class="overview-highlights">
                         <li>Programme outline (below) will be iterated with final times and rooms in November.</li>
-                        <li>Full manuscript submissions for the Paper Development track are due 17 October via the <a href="#submission-form">upload form</a>.</li>
+                        <li>Full manuscript submissions for the Paper Development track closed on 17 October; materials are now circulating to reviewers.</li>
                         <li>Reviews circulate 7 November, with revisions requested by 28 November.</li>
                     </ul>
                 </div>
@@ -171,7 +170,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </div>
                         <h3>Paper Library</h3>
-                        <p>Accepted contributions will be listed here with download links once uploads are verified. Expect access to be shared in late November.</p>
+                        <p>Manuscripts of accepted contributions will be listed here with download links in late November (accessible to registred participants).</p>
                         <span class="badge badge-soon">Coming soon</span>
                     </div>
                     <div class="resource-card fade-in">
@@ -179,60 +178,11 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                         </div>
                         <h3>Review Portal</h3>
-                        <p>Review assignments (two per Paper Development paper) will be emailed on 7 November together with the evaluation template and access code. A lightweight submission form will appear here.</p>
-                        <span class="badge badge-soon">Coming soon</span>
+                        <p>Review assignments have been circulated (two per Paper Development paper). Comments will be emailed by 7 November.</p>
+                        <a class="resource-link" href="https://noco.automate.business.aau.dk/dashboard/#/nc/view/27eb4ad9-cb3f-4a38-96f7-cf81a2dae435" target="_blank" rel="noopener noreferrer">Open reviewer allocations (new window)</a>
                     </div>
                 </div>
 
-                <div class="upload-card fade-in">
-                    <h3>Full Manuscript Upload</h3>
-                    <p class="upload-intro">Use the form below to provide the full manuscript (Paper Development track only). We will have a final camera ready submission form later. Files feed directly into the review workflow.</p>
-                    <ul class="upload-checklist">
-                        <li>Submit by <strong>17 October 2025</strong> (midnight CET).</li>
-                        <li>Single PDF file, max 15&nbsp;MB, named <code>LastName-ShortTitle.pdf</code>.</li>
-                        <li>Resubmissions before 28 November will overwrite the previous file.</li>
-                    </ul>
-
-                    <form id="submission-form" class="submission-form" novalidate>
-                        <div class="form-grid form-grid-compact">
-                            <div class="form-group">
-                                <label for="full_name">Full Name</label>
-                                <input type="text" id="full_name" name="full_name" placeholder="e.g., Jane Doe" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="e.g., jane.doe@university.edu" required>
-                            </div>
-                            <div class="form-group form-group-full">
-                                <label for="paper_title">Current Paper Title</label>
-                                <textarea id="paper_title" name="paper_title" placeholder="Provide the latest title exactly as it should appear in the programme." rows="2" required></textarea>
-                            </div>
-                            <div class="form-group form-group-full">
-                                <label for="paper">Upload Paper (PDF only)</label>
-                                <input type="file" id="paper" name="paper" class="file-input" accept=".pdf" required>
-                                <label for="paper" class="file-label">
-                                    <span class="file-label-text">Choose a file...</span>
-                                    <span class="file-button">Browse</span>
-                                </label>
-                            </div>
-                            <div class="form-group captcha-group">
-                                <label for="captcha">Security Check: <span id="captcha-question"></span></label>
-                                <input type="number" id="captcha" name="captcha" placeholder="Answer" required>
-                            </div>
-                        </div>
-
-                        <!-- Honeypot for spam prevention -->
-                        <div class="form-group-honeypot">
-                            <label for="website">Website</label>
-                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                        </div>
-
-                        <div class="form-footer">
-                             <button type="submit" id="submit-form-btn" class="btn btn-primary">Upload Manuscript</button>
-                             <div id="form-status"></div>
-                        </div>
-                    </form>
-                </div>
             </div>
         </section>
 
@@ -328,7 +278,7 @@
                     </div>
                     <div class="date-item fade-in">
                         <span class="date-label">17 October 2025</span>
-                        <p>Full-paper upload (Paper Development track) <span class="date-status status-active">Current focus</span></p>
+                        <p>Full-paper upload (Paper Development track) <span class="date-status status-complete">Closed</span></p>
                     </div>
                     <div class="date-item fade-in">
                         <span class="date-label">7 November 2025</span>

@@ -504,6 +504,27 @@ section:nth-of-type(odd):not(#hero) {
     margin-bottom: 0.5rem;
 }
 
+.resource-card .resource-link {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--secondary-color);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.resource-card .resource-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
 .badge {
     align-self: flex-start;
     padding: 0.35rem 0.75rem;
@@ -963,6 +984,7 @@ footer {
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
+    z-index: 1000;
 }
 
 #back-to-top-btn.show { 

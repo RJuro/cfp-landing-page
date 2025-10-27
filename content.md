@@ -26,8 +26,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 - **Heading:** Applying LLMs and GenAI in Innovation Economics
 - **Subheading:** A two-day workshop at Aalborg University Innovation Hub • 8–9 December 2025
 - **Buttons:**
-  - Button 1: View Programme → `#programme` (primary)
-  - Button 2: Participant Resources → `#participants` (secondary)
+  - Button 1: Participant Resources → `#participants` (primary)
 
 ---
 
@@ -41,7 +40,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 
 ### Highlight List
 - Programme outline (below) will be iterated with final times and rooms in November.
-- Full manuscript submissions for the Paper Development track are due 17 October via the [upload form](#submission-form).
+- Full manuscript submissions for the Paper Development track closed on 17 October; materials are now circulating to reviewers.
 - Reviewer assignments circulate 7 November, with revisions requested by 28 November.
 
 ---
@@ -94,27 +93,9 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
    - Accepted contributions will be listed here with download links once uploads are verified. Expect access to be shared in late November.
    - Badge: Coming soon
 2. **Review Portal**
-   - Review assignments (two per Paper Development paper) will be emailed on 7 November together with the evaluation template and access code. A lightweight submission form will appear here.
-   - Badge: Coming soon
+   - Review assignments (two per Paper Development paper) will be emailed on 7 November together with the evaluation template and access code.
+   - <a href="https://noco.automate.business.aau.dk/dashboard/#/nc/view/27eb4ad9-cb3f-4a38-96f7-cf81a2dae435" target="_blank" rel="noopener noreferrer">Open reviewer allocations (new window)</a>
 
-### Upload Card
-- **Heading:** Full Manuscript Upload
-- **Intro:** Use the form below to provide the full manuscript (Paper Development track only). We will have a final camera ready submission form later. Files feed directly into the review workflow.
-- **Checklist:**
-  1. Submit by **17 October 2025** (midnight CET).
-  2. Single PDF file, max 15 MB, named `LastName-ShortTitle.pdf`.
-  3. Resubmissions before 28 November will overwrite the previous file.
-
-### Upload Form Fields (minimal)
-1. Full Name (text, required)
-2. Email Address (email, required)
-3. Current Paper Title (multi-line text, required)
-4. Paper Upload (PDF, required)
-5. Captcha (simple arithmetic, required)
-6. Honeypot field (`website`) hidden from users
-
-### Success Message
-- After successful submission, the form should be replaced with: “**Manuscript Received** — Thank you! We have received your full manuscript. A confirmation email will follow shortly.”
 
 ---
 
@@ -172,9 +153,9 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 
 ### Milestone List
 1. **30 September 2025** — Registration & track selection *(Closed)*
-2. **17 October 2025** — Full-paper upload (Paper Development track) *(Current focus)*
+2. **17 October 2025** — Full-paper upload (Paper Development track) *(Closed)*
 3. **7 November 2025** — Reviewer packets & discussant briefs *(Prepare)*
-4. **28 November 2025** — Revised files & final discussant notes *(Due soon)*
+4. **28 November 2025** — Revised files & final discussant notes *(Coming up)*
 5. **8–9 December 2025** — Workshop onsite at AAU Innovate *(On campus)*
 
 ### Timeline Note
