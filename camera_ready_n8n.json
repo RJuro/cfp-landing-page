@@ -3,7 +3,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "6a3e5777-c598-41f7-ab65-113973636107",
+        "path": "camera-ready-submission",
         "options": {
           "ignoreBots": true
         }
@@ -14,22 +14,22 @@
         -320,
         -160
       ],
-      "id": "1881f5de-c61e-4fe6-a9b7-a14f6784bde6",
-      "name": "Webhook",
-      "webhookId": "6a3e5777-c598-41f7-ab65-113973636107"
+      "id": "webhook-camera-ready",
+      "name": "Webhook - Camera Ready",
+      "webhookId": "camera-ready-submission"
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "create",
         "projectId": "pnrem0eltx9z2ia",
-        "table": "mf2fq7eje12lqr3",
+        "table": "camera_ready_submissions",
         "fieldsUi": {
           "fieldValues": [
             {
-              "fieldName": "Paper",
+              "fieldName": "CameraReadyPaper",
               "binaryData": true,
-              "binaryProperty": "paper"
+              "binaryProperty": "camera_ready_file"
             },
             {
               "fieldName": "Name",
@@ -42,6 +42,10 @@
             {
               "fieldName": "Title",
               "fieldValue": "={{ $json.body.paper_title }}"
+            },
+            {
+              "fieldName": "SubmissionType",
+              "fieldValue": "={{ $json.body.submission_type }}"
             }
           ]
         }
@@ -52,8 +56,8 @@
         0,
         -160
       ],
-      "id": "d68dfb19-0422-4ff8-a399-ea1cefdd357c",
-      "name": "Create a row",
+      "id": "nocodb-camera-ready",
+      "name": "Store Camera Ready Submission",
       "credentials": {
         "nocoDbApiToken": {
           "id": "DkJsKrdCF1avft4n",
@@ -88,7 +92,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"to\": \"{{ $json.Email }}\",\n  \"subject\": \"MASSHINE: Thanks for your paper submission\",\n  \"body\": \"Dear {{ $json.Name }},<p>Thank you for submitting your paper titled <em>{{ $json.Title }}</em>.</p><p>We are currently waiting for all submissions to be received. Once that is complete, we will allocate reviewers and get back to everyone with their respective review assignments shortly.</p><p>Please note that reviews are due by <strong>November 7th</strong>, and revised manuscripts should be resubmitted by <strong>November 28th</strong>.</p><br><p>Best regards,</p><p><strong>Roman Jurowetzki</strong><br>Associate Professor of Innovation Studies & Applied Data Science | Aalborg University Business School<br>IKE | Chief Scientist - National Center for AI in Society (CAISA)<br><br>T: (+45) 9940 2738 | Email: roman@business.aau.dk<br>Aalborg University | Fibigerstræde 11, Room 103 | DK-9220 Aalborg East, Denmark</p>\",\n  \"html\": true,\n  \"importance\": \"Normal\"\n}",
+        "jsonBody": "={\n  \"to\": \"{{ $json.Email }}\",\n  \"subject\": \"MASSHINE Workshop: Camera Ready Submission Received\",\n  \"body\": \"Dear {{ $json.Name }},<p>Thank you for submitting the camera ready version of your paper titled <em>{{ $json.Title }}</em> ({{ $json.SubmissionType }}).</p><p>We have successfully received your submission. The organizing committee will review all camera ready submissions and ensure they are ready for inclusion in the workshop proceedings.</p><p>If you have any questions or need to update your submission, please contact us at roman@business.aau.dk.</p><br><p>We look forward to seeing you at the workshop on <strong>December 8-9, 2025</strong> at AAU Innovate, Aalborg.</p><br><p>Best regards,</p><p><strong>Roman Jurowetzki</strong><br>Associate Professor of Innovation Studies & Applied Data Science | Aalborg University Business School<br>IKE | Chief Scientist - National Center for AI in Society (CAISA)<br><br>T: (+45) 9940 2738 | Email: roman@business.aau.dk<br>Aalborg University | Fibigerstræde 11, Room 103 | DK-9220 Aalborg East, Denmark</p>\",\n  \"html\": true,\n  \"importance\": \"Normal\"\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -97,27 +101,27 @@
         240,
         -160
       ],
-      "id": "8add1f14-4588-408d-9643-9b3083907a75",
-      "name": "HTTP Request"
+      "id": "email-confirmation",
+      "name": "Send Confirmation Email"
     }
   ],
   "connections": {
-    "Webhook": {
+    "Webhook - Camera Ready": {
       "main": [
         [
           {
-            "node": "Create a row",
+            "node": "Store Camera Ready Submission",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Create a row": {
+    "Store Camera Ready Submission": {
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Send Confirmation Email",
             "type": "main",
             "index": 0
           }
@@ -126,37 +130,24 @@
     }
   },
   "pinData": {
-    "Webhook": [
+    "Webhook - Camera Ready": [
       {
         "headers": {
           "host": "n8n.automate.business.aau.dk",
           "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
-          "content-length": "118331",
-          "accept": "*/*",
-          "accept-encoding": "gzip, deflate, br, zstd",
-          "accept-language": "en-US,en;q=0.9,da-DK;q=0.8,da;q=0.7,de-DE;q=0.6,de;q=0.5,es-ES;q=0.4,es;q=0.3",
-          "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryU7ZJVVGvvUAB4SDB",
-          "origin": "null",
-          "priority": "u=1, i",
-          "sec-ch-ua": "\"Google Chrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
-          "sec-ch-ua-mobile": "?0",
-          "sec-ch-ua-platform": "\"macOS\"",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "cross-site",
-          "x-forwarded-for": "109.56.117.74",
-          "x-forwarded-host": "n8n.automate.business.aau.dk",
-          "x-forwarded-proto": "https"
+          "content-type": "multipart/form-data",
+          "accept": "*/*"
         },
         "params": {},
         "query": {},
         "body": {
-          "full_name": "Roman",
-          "email": "roman@business.aau.dk",
-          "paper_title": "Test test",
+          "full_name": "Test Author",
+          "email": "test@example.com",
+          "paper_title": "Test Paper Title",
+          "submission_type": "Full Paper",
           "captcha": "9"
         },
-        "webhookUrl": "https://n8n.automate.business.aau.dk/webhook/6a3e5777-c598-41f7-ab65-113973636107",
+        "webhookUrl": "https://n8n.automate.business.aau.dk/webhook/camera-ready-submission",
         "executionMode": "production"
       }
     ]
