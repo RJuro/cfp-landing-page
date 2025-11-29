@@ -1084,6 +1084,10 @@ footer {
         height: 32px;
     }
 
+    .hero-logos {
+        display: none;
+    }
+
     .nav-links {
         display: flex;
         position: fixed;
