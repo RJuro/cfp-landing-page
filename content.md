@@ -50,7 +50,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 - Programme Overview
 
 ### Intro Copy
-- The outline below is a working draft; detailed slots and moderators will follow once review assignments are confirmed.
+- The outline below is a working draft; detailed slots and moderators will follow once review assignments are confirmed. Download the current PDF for offline reference: [Programme PDF](masshine_program.pdf).
 
 ### Day 1 · Monday, 8 December
 | Time | Item |
@@ -70,7 +70,7 @@ This markdown file mirrors the content structure of `index.html`. Edit the secti
 | Time | Item |
 |------|------|
 | 09:00 | Arrival & coffee |
-| 09:15 | Keynote · Anders Bjerre-Nielsen |
+| 09:15 | Keynote · [Andreas Bjerre-Nielsen](https://bjerre-nielsen.me) |
 | 10:15–12:30 | Sessions and workshops |
 | 12:30–13:30 | Lunch |
 | 13:30–15:30 | Sessions and workshops continue |

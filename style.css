@@ -170,17 +170,32 @@ header nav {
     height: 100%;
 }
 
-.logo {
+.logo-pair {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-right: 2rem;
-    /* ADDED: Creates more space next to the logo */
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: center;
 }
 
 .nav-logo {
-    height: 32px;
-    /* MODIFIED: Was 36px */
+    height: 28px;
     width: auto;
     display: block;
     filter: drop-shadow(0 2px 6px rgba(0, 51, 102, 0.1));
+}
+
+.nav-logo-primary {
+    height: 28px;
+}
+
+.nav-logo-secondary {
+    height: 36px;
+    opacity: 0.9;
 }
 
 .nav-right {
@@ -338,14 +353,28 @@ header nav {
     justify-content: center;
 }
 
-.masshine-logo {
-    height: 52px;
+.hero-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-logo {
+    height: 44px;
     width: auto;
     filter: drop-shadow(0 4px 12px rgba(0, 51, 102, 0.15));
     transition: transform 0.3s ease;
 }
 
-.masshine-logo:hover {
+.hero-logo-primary {
+    height: 44px;
+}
+
+.hero-logo-secondary {
+    height: 50px;
+}
+
+.hero-logo:hover {
     transform: scale(1.05);
 }
 
@@ -1042,6 +1071,19 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo-pair {
+        gap: 0.5rem;
+        margin-right: 1rem;
+    }
+
+    .nav-logo-primary {
+        height: 24px;
+    }
+
+    .nav-logo-secondary {
+        height: 32px;
+    }
+
     .nav-links {
         display: flex;
         position: fixed;
@@ -1137,6 +1179,14 @@ footer {
     color: #555;
     font-size: 1.1rem;
     margin: -1rem 0 3rem;
+}
+
+.programme-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .camera-ready-info {

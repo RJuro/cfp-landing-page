@@ -3,6 +3,7 @@ Event: Applying LLMs and GenAI in Innovation Economics
 Host: Aalborg University Business School
 Dates: Monday 8 – Tuesday 9, December 2025
 Venue: Innovate Building, Aalborg University
+Programme PDF: masshine_program.pdf
 
 Day 1: Monday, 8 December 2025
 Morning Programme
@@ -23,7 +24,7 @@ Paper: LLMs as Economic Measurement Tools: A Framework for Multi-Label Job Posti
 Presenter: Rentian Zhu (Copenhagen Business School - CBS)
 Discussants: Björn Preuß & Tommaso Ciarli
 09:50 – 10:20
-Paper: From scratch to silver: Creating trustworthy training data for patent-SDG classification using Large Language Models
+Paper: From Scratch to Silver: Creating Trustworthy Training Data for Patent-SDG Classification Using Large Language Models
 Presenter: Grazia Sveva Ascione (Polytechnic University of Turin)
 Discussants: Roman Jurowetzki & Primoz Konda
 10:20 – 10:50
@@ -40,13 +41,13 @@ Track A: Web Data & Analysis
 Location: Innovation Lab
 Chair: Björn Jindra
 11:10 – 11:30 | Sebastian Schmidt (University of Salzburg)
-Employing LLMs and organisational web data for innovation research – the WebAI paradigm
+Employing LLMs and Organisational Web Data for Innovation Research — the WebAI Paradigm
 Discussant: Leonardo Castro-Gonzalez
 11:30 – 11:50 | Leonardo Castro-Gonzalez (University of Bristol)
-An Atlas of Economic Activities in the UK: tapping into web archives for social science research
+An Atlas of Economic Activities in the UK: Tapping into Web Archives for Social Science Research
 Discussant: Zhang Shiyun
 11:50 – 12:10 | Zhang Shiyun (Beijing Academy of Science and Technology)
-A Study of Competitive Dynamics Analysis Report Generation Aided by Large Language Models (TBC)
+A Study of Competitive Dynamics Analysis Report Generation Aided by LLMs
 Discussant: Sebastian Schmidt
 12:10 – 12:15 | Brief Wrap-up (Quick Q&A / Synthesis)
 Track B: Spillovers & Diffusion
@@ -56,7 +57,7 @@ Chair: Eskil Andersen
 Extracting Innovation and Cost Metrics for Synthetic Fuels Using LLMs: A Scalable Pipeline
 Discussant: Saverio Barabuffi
 11:30 – 11:50 | Saverio Barabuffi (Scuola Superiore Sant’Anna)
-Inter-regional Public Knowledge Spillovers and Patenting Performance (NLP)
+Inter-regional Public Knowledge Spillovers and Patenting Performance
 Discussant: Johan Lausen
 11:50 – 12:10 | Johan Lausen (University of Copenhagen - IFRO)
 A LLM Analysis of European Environmental Policy Diffusion Networks
@@ -66,11 +67,9 @@ Discussant: Tobias Buchmann
 Lunch & Keynote
 12:15 – 13:15 | Lunch
 Location: Innovate Faculty Club
-13:15 – 13:30 | Transition Break
-Movement to the Lab for the afternoon session.
 13:30 – 14:30 | Keynote Lecture
 Location: Innovate - Lab
-Speaker: Johan Heinsen (Professor, Dept. of Politics and Society, Aalborg University)
+Speaker: [Johan Heinsen](https://vbn.aau.dk/en/persons/heinsen/) (Professor, Dept. of Politics and Society, Aalborg University)
 Title: Transforming Historical Research with Language Models
 Format: 45 min talk + 15 min Q&A
 14:30 – 14:50 | Coffee Break
@@ -81,9 +80,9 @@ Afternoon: Methods Fair
 Location: Innovate - Lab
 Part 1: Lightning Pitches (14:50 – 15:00)
 5 pitches × 2 minutes each
-Rentian Zhu: Use Claude Code for replication / Integration with Stata MCP
-Milad Abbasiharofteh: Trademark data & NLP for diffusion/commercialization
-Hamid Bekamiri: Aalborg Port: news-based diffusion pipeline
+Rentian Zhu: Claude Code for replication / Stata MCP integration
+Milad Abbasiharofteh: Trademark data & NLP for diffusion research
+Hamid Bekamiri: News-based diffusion pipeline
 Sebastian Schmidt: Region Insights / WebAI for regional analysis
 Jessica Birkholz: Embedding-based literature review pipeline
 Part 2: Hands-on Rotation (15:00 – 15:45)
@@ -93,14 +92,13 @@ Participants rotate between stations every 15 minutes.
 15:30 – 15:45: Round 3
 15:45 | Day 1 Wrap-up & Logistics
 Speaker: Roman Jurowetzki 
-After: Take bus to center - relax
 
 Day 1 Evening Social
-17:30 | Reception and Social
+17:30 | Reception
 Location: CREATE Building, Aalborg Central Waterfront
 Address: Rendsburggade 14, 9000 Aalborg, Denmark
-Reservation name: Maja or MASSHINE 
-18:40 | Walk to Restaurant
+Reservation: AAU or MASSHINE 
+18:40 | Walk to restaurant (~20 min)
 19:00 | Dinner
 Location: Restaurant Textur 
 Address: Østre Havnegade 28, Aalborg
@@ -130,9 +128,9 @@ Discussants: Erik Lang & Jessica Birkholz
 Location: Innovate Lab Foyer
 
 Keynote
-11:00 – 12:00 | Keynote: TBD
+11:00 – 12:00 | Keynote: Predicting Human Outcomes at Scale with Applications for Policy
 Location: Innovate - Lab
-Speaker: Andreas Bjerre-Nielsen (Associate Professor, University of Copenhagen)
+Speaker: [Andreas Bjerre-Nielsen](https://bjerre-nielsen.me) (Associate Professor, University of Copenhagen)
 Format: 45 min talk + 15 min Q&A
 
 Lunch
@@ -141,7 +139,7 @@ Location: Innovate Faculty Club
 
 Parallel Sessions
 13:00 – 14:30 | Session 4: Parallel Tracks (A & B)
-Locations: Track A in Lab | Track B in Meeting Room (3rd Floor)
+Locations: Track A in Lab | Track B in Meeting Room A.314 (3rd Floor)
 Track A: Risk & Adoption
 Location: Innovation Lab
 Chair: Christian Nielsen
@@ -149,19 +147,19 @@ Chair: Christian Nielsen
 Applying LLM for Granular Innovation Assessment
 Discussants: Alexandra Badort & Ana Pastor-Merino
 13:30 – 14:00 | Björn Preuß (Copenhagen Business School) [Online Presentation]
-Controlling LLMs’ in- and output to mitigate risks
+Controlling LLMs' In- and Output to Mitigate Risks
 Discussants: Tommaso Ciarli & Dorian Fildor
 14:00 – 14:30 | Ana Pastor-Merino (Universitat Politècnica de València)
 LLM-Based Web Mining for Firm-Level AI Adoption and Productivity
 Discussants: Johanna Einsiedler & Egbert Amoncio
 Track B: Dynamics & Emerging Tech
-Location: Meeting Room (3rd Floor)
+Location: Meeting Room A.314 (3rd Floor)
 Chair: Jessica Birkholz
 13:00 – 13:30 | Erik Lang (Norwegian School of Economics)
 The Imitation Game: A Longitudinal Study of the Imitation–Performance Relationship in S&P 500 Firms
 Discussants: Jessica Birkholz & Milad Abbasiharofteh
 13:30 – 14:00 | Kevin Michoud (University of Strasbourg)
-Using Large Language Models to Analyze the Impact of Advanced Digital Technologies on Sustainable Development Goals
+Using Large Language Models to Analyze the Impact of Advanced Digital Technologies on SDGs
 Discussant: Milad Abbasiharofteh
 14:00 – 14:30 | Christian Nielsen (Aalborg University)
 Using Large Language Models in Policy Mix Analysis

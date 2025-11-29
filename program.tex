@@ -1,0 +1,551 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{parskip}
+\usepackage{microtype}
+
+% ============================================================================
+% COLOR DEFINITIONS
+% ============================================================================
+\definecolor{aauBlue}{HTML}{211D5F}
+\definecolor{aauLightBlue}{HTML}{3A5BA0}
+\definecolor{aauAccent}{HTML}{F0F4F8}
+\definecolor{sessionGreen}{HTML}{2D6A4F}
+\definecolor{trackA}{HTML}{1565C0}
+\definecolor{trackB}{HTML}{00695C}
+\definecolor{breakGray}{HTML}{5C6370}
+\definecolor{lightGray}{HTML}{F7F8FA}
+\definecolor{warmGray}{HTML}{E8E6E3}
+
+% ============================================================================
+% TCOLORBOX STYLES
+% ============================================================================
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{overviewbox}{
+    colback=aauAccent,
+    colframe=aauBlue,
+    arc=2pt,
+    boxrule=0.8pt,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fonttitle=\bfseries\large\color{aauBlue},
+    coltitle=aauBlue,
+    attach boxed title to top left={yshift=-2mm, xshift=10pt},
+    boxed title style={colback=white, colframe=white}
+}
+
+\newtcolorbox{sessionbox}[1][]{
+    colback=white,
+    colframe=aauBlue,
+    arc=2pt,
+    boxrule=0.5pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    #1
+}
+
+\newtcolorbox{keynoteBox}{
+    enhanced,
+    colback=aauAccent,
+    colframe=aauBlue,
+    arc=3pt,
+    boxrule=1pt,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    shadow={1pt}{-1pt}{0pt}{black!15}
+}
+
+\newtcolorbox{socialbox}{
+    colback=warmGray,
+    colframe=aauBlue!50,
+    arc=2pt,
+    boxrule=0.5pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt
+}
+
+% ============================================================================
+% HYPERREF SETUP
+% ============================================================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=aauBlue,
+    urlcolor=aauLightBlue,
+    pdftitle={MASSHINE Workshop Programme},
+    pdfauthor={Aalborg University Business School},
+}
+
+% ============================================================================
+% HEADER/FOOTER
+% ============================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{aauBlue}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\small\color{aauBlue}\textsc{MASSHINE Workshop}}
+\fancyhead[R]{\small\color{aauBlue}8--9 December 2025}
+\fancyfoot[C]{\thepage}
+
+% ============================================================================
+% SECTION FORMATTING
+% ============================================================================
+\titleformat{\section}
+    {\Large\bfseries\color{aauBlue}}
+    {}
+    {0pt}
+    {}
+    [\vspace{-0.3em}\color{aauBlue}\rule{\textwidth}{0.8pt}]
+
+\titleformat{\subsection}
+    {\large\bfseries\color{aauBlue}}
+    {}
+    {0pt}
+    {}
+
+% ============================================================================
+% CUSTOM COMMANDS
+% ============================================================================
+\newcommand{\timeblock}[1]{\textcolor{aauBlue}{\textbf{#1}}}
+\newcommand{\location}[1]{\textcolor{breakGray}{\faIcon{map-marker-alt}~#1}}
+\newcommand{\chair}[1]{\textcolor{sessionGreen}{\faIcon{user-tie}~Chair: #1}}
+\newcommand{\presenter}[1]{\textit{#1}}
+\newcommand{\discussant}[1]{\textcolor{breakGray}{\small Discussants: #1}}
+
+\newcommand{\paperentry}[4]{%
+    \noindent\timeblock{#1}\\[2pt]
+    \textbf{#2}\\
+    \presenter{#3}\\
+    \discussant{#4}\\[0.6em]
+}
+
+\newcommand{\breakitem}[3]{%
+    \noindent\colorbox{lightGray}{\parbox{\dimexpr\textwidth-2\fboxsep}{%
+        \timeblock{#1}\hfill\textcolor{breakGray}{#2}\\
+        \location{#3}
+    }}\\[0.5em]
+}
+
+% ============================================================================
+% BEGIN DOCUMENT
+% ============================================================================
+\begin{document}
+
+% ============================================================================
+% TITLE PAGE
+% ============================================================================
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \fill[aauBlue] (current page.north west) rectangle ([yshift=-7.5cm]current page.north east);
+\end{tikzpicture}
+
+\vspace*{0.8cm}
+
+\begin{center}
+    {\color{white}\fontsize{28}{34}\selectfont\bfseries Applying LLMs and GenAI\\[0.4em] in Innovation Economics}
+    
+    \vspace{1.2em}
+    
+    {\color{white}\large Economics and Innovation of AI Network Workshop}
+    
+    \vspace{0.6em}
+    
+    {\color{white!90}\normalsize Hosted by MASSHINE, Aalborg University Business School}
+    
+    \vspace{0.8em}
+    
+    {\color{white}\Large\bfseries 8--9 December 2025}
+\end{center}
+
+\vspace{3cm}
+
+\begin{overviewbox}
+\textbf{\large Workshop Overview}
+
+\vspace{0.5em}
+
+Large Language Models and Generative AI are reshaping how economists study innovation, enabling causal insights, richer measurement, and new views on technological change. This workshop convenes researchers who advance these methods in innovation economics, share practical playbooks, and surface emerging risks around data quality, reproducibility, and responsible deployment.
+\end{overviewbox}
+
+\vspace{1.2em}
+
+\begin{center}
+\faIcon{map-marker-alt}\quad \textbf{AAU Innovate} · Thomas Manns Vej 25 · 9220 Aalborg Ø, Denmark
+\end{center}
+
+\vspace{1.5em}
+
+% Logos - same layout as footer
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[height=1cm]{masshine_logo.png}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[height=2cm]{aau_logo.png}
+\end{minipage}
+\end{center}
+
+\vspace{1.5em}
+
+\begin{center}
+\textcolor{aauBlue}{\rule{0.5\textwidth}{0.5pt}}
+
+\vspace{0.8em}
+
+\textcolor{breakGray}{\small A collaboration between AAU, Copenhagen Business School, University of Strasbourg,\\University of Bremen, and UNU-MERIT\\[0.3em]
+With funding from MASSHINE and the SSH Faculty at AAU}
+\end{center}
+
+\newpage
+
+% ============================================================================
+% DAY 1
+% ============================================================================
+\section*{\faIcon{calendar-day} Day 1 — Monday, 8 December 2025}
+
+\subsection*{Morning Programme}
+
+\breakitem{08:30 – 09:00}{\faIcon{coffee} Registration \& Coffee}{Innovate Pitch-area Foyer}
+
+\begin{sessionbox}
+\timeblock{09:00 – 09:20} \hfill \location{Pitch-area}\\[0.3em]
+\textbf{Welcome \& Housekeeping}\\
+\textit{Roman Jurowetzki (AAU, DK), Mette Vinther Larsen (Head of AAU Business School, DK)}
+\end{sessionbox}
+
+\vspace{0.5em}
+
+\begin{sessionbox}[colframe=sessionGreen]
+\timeblock{09:20 – 10:50} \hfill \location{Pitch-area}\\[0.3em]
+\textbf{Session 1: Methods I (Plenum)}\\
+\chair{Stefano Bianchini (University of Strasbourg, FR)}\\
+\textcolor{breakGray}{\small Format: 15 min talk + 5 min Discussant 1 + 5 min Discussant 2 + 5 min Q\&A}
+
+\vspace{0.8em}
+
+\paperentry{09:20 – 09:50}{LLMs as Economic Measurement Tools: A Framework for Multi-Label Job Posting Classification}{Rentian Zhu (Copenhagen Business School, DK)}{Björn Preuß \& Tommaso Ciarli}
+
+\paperentry{09:50 – 10:20}{From Scratch to Silver: Creating Trustworthy Training Data for Patent-SDG Classification Using Large Language Models}{Grazia Sveva Ascione (Polytechnic University of Turin, IT)}{Roman Jurowetzki \& Primoz Konda}
+
+\paperentry{10:20 – 10:50}{Self-Building Benchmarks: Using AI Generated Exams to Understand LLM Work Capabilities}{Johanna Einsiedler (University of Copenhagen, DK)}{Egbert Amoncio \& Erik Lang}
+\end{sessionbox}
+
+\breakitem{10:50 – 11:10}{\faIcon{coffee} Coffee Break}{Innovate Pitch-area Foyer}
+
+\subsection*{Parallel Sessions (11:10 – 12:15)}
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{sessionbox}[colframe=trackA]
+\textcolor{trackA}{\textbf{\faIcon{globe} Track A: Web Data \& Analysis}}\\
+\location{Innovation Lab}\\
+\chair{Björn Jindra (CBS, DK)}
+
+\vspace{0.5em}
+
+\paperentry{11:10 – 11:30}{Employing LLMs and Organisational Web Data for Innovation Research — the WebAI Paradigm}{Sebastian Schmidt (University of Salzburg, AT)}{Leonardo Castro-Gonzalez}
+
+\paperentry{11:30 – 11:50}{An Atlas of Economic Activities in the UK: Tapping into Web Archives for Social Science Research}{Leonardo Castro-Gonzalez (University of Bristol, UK)}{Zhang Shiyun}
+
+\paperentry{11:50 – 12:10}{A Study of Competitive Dynamics Analysis Report Generation Aided by LLMs}{Zhang Shiyun (Beijing Academy of Science and Technology, CN)}{Sebastian Schmidt}
+\end{sessionbox}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{sessionbox}[colframe=trackB]
+\textcolor{trackB}{\textbf{\faIcon{project-diagram} Track B: Spillovers \& Diffusion}}\\
+\location{Meeting Room A.314 (3rd Floor)}\\
+\chair{Eskil Andersen (AAU, DK)}
+
+\vspace{0.5em}
+
+\paperentry{11:10 – 11:30}{Extracting Innovation and Cost Metrics for Synthetic Fuels Using LLMs: A Scalable Pipeline}{Tobias Buchmann (ZSW, DE)}{Saverio Barabuffi}
+
+\paperentry{11:30 – 11:50}{Inter-regional Public Knowledge Spillovers and Patenting Performance}{Saverio Barabuffi (Scuola Superiore Sant'Anna, IT)}{Johan Lausen}
+
+\paperentry{11:50 – 12:10}{A LLM Analysis of European Environmental Policy Diffusion Networks}{Johan Lausen (University of Copenhagen, DK)}{Tobias Buchmann}
+\end{sessionbox}
+\end{minipage}
+
+\vspace{1em}
+
+\subsection*{Lunch \& Keynote}
+
+\breakitem{12:15 – 13:15}{\faIcon{utensils} Lunch}{Innovate Faculty Club}
+
+\begin{keynoteBox}
+\textcolor{aauBlue}{\faIcon{microphone-alt}\quad\textbf{Keynote Lecture}}
+
+\vspace{0.5em}
+
+\timeblock{13:30 – 14:30} \hfill \location{Innovate Lab}
+
+\vspace{0.5em}
+
+\textbf{\large Transforming Historical Research with Language Models}
+
+\vspace{0.3em}
+
+\textit{Johan Heinsen}\\
+Professor, Department of Politics and Society, Aalborg University (DK)
+
+\vspace{0.3em}
+
+\textcolor{breakGray}{Format: 45 min talk + 15 min Q\&A}
+\end{keynoteBox}
+
+\breakitem{14:30 – 14:50}{\faIcon{coffee} Coffee Break}{Innovate Lab Foyer}
+
+\subsection*{Methods Fair}
+
+\begin{sessionbox}[colframe=aauBlue]
+\timeblock{14:50 – 15:45} \hfill \location{Innovate Lab}\\[0.3em]
+\textbf{\faIcon{lightbulb} Methods Fair: Lightning Pitches \& Hands-on Stations}
+
+\vspace{0.5em}
+
+\textbf{Part 1: Lightning Pitches (14:50 – 15:00)}
+\begin{itemize}[leftmargin=1.5em, itemsep=0.1em, topsep=0.2em]
+    \item Rentian Zhu: Claude Code for replication / Stata MCP integration
+    \item Milad Abbasiharofteh: Trademark data \& NLP for diffusion research
+    \item Hamid Bekamiri: News-based diffusion pipeline
+    \item Sebastian Schmidt: Region Insights / WebAI for regional analysis
+    \item Jessica Birkholz: Embedding-based literature review pipeline
+\end{itemize}
+
+\textbf{Part 2: Hands-on Rotation (15:00 – 15:45)}\\
+Participants rotate between stations every 15 minutes
+\end{sessionbox}
+
+\subsection*{Evening Social}
+
+\begin{socialbox}
+\faIcon{glass-cheers} \textbf{17:30} — Reception\\
+\location{CREATE Building Waterfront, Rendsburggade 14, 9000 Aalborg}\\
+
+\vspace{0.5em}
+
+\faIcon{walking} \textbf{18:40} — Walk to restaurant (~20 min)
+
+\vspace{0.5em}
+
+\faIcon{utensils} \textbf{19:00} — Dinner at \href{https://restauranttextur.dk}{Restaurant Textur}, Østre Havnegade 28 \\
+\textcolor{breakGray}{\small Reservation: AAU or MASSHINE}
+
+\end{socialbox}
+
+\newpage
+
+% ============================================================================
+% DAY 2
+% ============================================================================
+\section*{\faIcon{calendar-day} Day 2 — Tuesday, 9 December 2025}
+
+\subsection*{Morning Programme}
+
+\breakitem{08:30 – 09:00}{\faIcon{coffee} Arrival \& Coffee}{Innovate Lab Foyer}
+
+\begin{sessionbox}[colframe=sessionGreen]
+\timeblock{09:00 – 10:30} \hfill \location{Innovation Lab}\\[0.3em]
+\textbf{Session 3: Methods II \& Applications (Plenum)}\\
+\chair{Hamid Bekamiri (AAU, DK)}
+
+\vspace{0.8em}
+
+\paperentry{09:00 – 09:30}{Understanding Future AI-Green Technology Directions from Past Technological Trajectories}{Tommaso Ciarli (UNU-MERIT, NL) \textcolor{breakGray}{[Online]}}{Dorian Fildor \& Alexandra Badort}
+
+\paperentry{09:30 – 10:00}{Firm AI Adoption and Regional Public Discourse: Insights from Germany}{Alexandra Badort (LUISS Guido Carli, IT)}{Ana Pastor-Merino \& Johanna Einsiedler}
+
+\paperentry{10:00 – 10:30}{Beyond the Pretty Face: Unmasking the True Power—and Limits—of Design Innovation}{Egbert Amoncio (Goethe University Frankfurt, DE)}{Erik Lang \& Jessica Birkholz}
+\end{sessionbox}
+
+\breakitem{10:30 – 11:00}{\faIcon{coffee} Coffee Break}{Innovate Lab Foyer}
+
+\begin{keynoteBox}
+\textcolor{aauBlue}{\faIcon{microphone-alt}\quad\textbf{Keynote Lecture}}
+
+\vspace{0.5em}
+
+\timeblock{11:00 – 12:00} \hfill \location{Innovate Lab}
+
+\vspace{0.5em}
+
+\textbf{\large Predicting Human Outcomes at Scale with Applications for Policy}
+
+\vspace{0.3em}
+
+\textit{Andreas Bjerre-Nielsen}\\
+Associate Professor, University of Copenhagen (DK)
+
+\vspace{0.3em}
+
+\textcolor{breakGray}{Format: 45 min talk + 15 min Q\&A}
+\end{keynoteBox}
+
+\breakitem{12:00 – 13:00}{\faIcon{utensils} Lunch}{Innovate Faculty Club}
+
+\subsection*{Parallel Sessions (13:00 – 14:30)}
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{sessionbox}[colframe=trackA]
+\textcolor{trackA}{\textbf{\faIcon{shield-alt} Track A: Risk \& Adoption}}\\
+\location{Innovation Lab}\\
+\chair{Christian Nielsen (AAU, DK)}
+
+\vspace{0.5em}
+
+\paperentry{13:00 – 13:30}{Applying LLM for Granular Innovation Assessment}{Dorian Fildor (University of Innsbruck / Zagreb, AT/HR)}{Alexandra Badort \& Ana Pastor-Merino}
+
+\paperentry{13:30 – 14:00}{Controlling LLMs' In- and Output to Mitigate Risks}{Björn Preuß (Copenhagen Business School, DK) \textcolor{breakGray}{[Online]}}{Tommaso Ciarli \& Dorian Fildor}
+
+\paperentry{14:00 – 14:30}{LLM-Based Web Mining for Firm-Level AI Adoption and Productivity}{Ana Pastor-Merino (Universitat Politècnica de València, ES)}{Johanna Einsiedler \& Egbert Amoncio}
+\end{sessionbox}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{sessionbox}[colframe=trackB]
+\textcolor{trackB}{\textbf{\faIcon{rocket} Track B: Dynamics \& Emerging Tech}}\\
+\location{Meeting Room A.314 (3rd Floor)}\\
+\chair{Jessica Birkholz (University of Bremen, DE)}
+
+\vspace{0.5em}
+
+\paperentry{13:00 – 13:30}{The Imitation Game: A Longitudinal Study of the Imitation–Performance Relationship in S\&P 500 Firms}{Erik Lang (Norwegian School of Economics, NO)}{Jessica Birkholz \& Milad Abbasiharofteh}
+
+\paperentry{13:30 – 14:00}{Using Large Language Models to Analyze the Impact of Advanced Digital Technologies on SDGs}{Kevin Michoud (University of Strasbourg, FR)}{Milad Abbasiharofteh}
+
+\paperentry{14:00 – 14:30}{Using Large Language Models in Policy Mix Analysis}{Christian Nielsen (Aalborg University, DK)}{Primoz Konda \& Giacomo Damioli}
+\end{sessionbox}
+\end{minipage}
+
+\vspace{1em}
+
+\breakitem{14:30 – 14:50}{\faIcon{coffee} Coffee Break}{Innovate Lab Foyer}
+
+\begin{sessionbox}[colframe=sessionGreen]
+\timeblock{14:50 – 15:50} \hfill \location{Innovation Lab}\\[0.3em]
+\textbf{Session 5: Innovation Narratives (Plenum)}\\
+\chair{Roman Jurowetzki (AAU, DK)}
+
+\vspace{0.8em}
+
+\paperentry{14:50 – 15:20}{Narratives of Political Parties and Green Path Development in European Regions}{Jessica Birkholz (University of Bremen, DE)}{Milad Abbasiharofteh \& Rentian Zhu}
+
+\paperentry{15:20 – 15:50}{Chatting Innovation: Bridging Invention and Market Innovation}{Milad Abbasiharofteh (Aalborg University, DK)}{Rentian Zhu \& Björn Preuß \textcolor{breakGray}{[Online]}}
+\end{sessionbox}
+
+\vspace{0.5em}
+
+\begin{sessionbox}
+\timeblock{15:50 – 16:00}\\[0.3em]
+\textbf{Closing Remarks \& Departure}\\
+\textit{Roman Jurowetzki \& Organizing Team}
+\end{sessionbox}
+
+\newpage
+
+% ============================================================================
+% VENUE & LOGISTICS
+% ============================================================================
+\section*{\faIcon{map-marked-alt} Venue \& Logistics}
+
+\begin{sessionbox}
+\textbf{AAU Innovate}\\
+Thomas Manns Vej 25, 9220 Aalborg Ø, Denmark\\[0.3em]
+\href{https://maps.google.com/?q=AAU+Innovate,+Thomas+Manns+Vej+25,+9220+Aalborg}{\faIcon{external-link-alt}~Open in Google Maps}
+\end{sessionbox}
+
+\subsection*{\faIcon{plane} Travel}
+
+\begin{itemize}[leftmargin=2em, itemsep=0.3em]
+    \item \textbf{By air:} Aalborg Airport (AAL) with connections to the city; Plusbus 2 from centre to AAU Innovate (~25 min)
+    \item \textbf{By rail:} Aalborg Station connects hourly to Aarhus, Copenhagen, and Hamburg. Plusbus line 2 departs outside.
+    \item \textbf{Taxi:} Airport to city centre ~250 DKK
+    \item \textbf{Apps:} \href{https://www.rejsekort.dk/da/rejsekort_app?sc_lang=en}{Rejsekort} / \href{https://www.rejsekort.dk/Rejsebillet}{Rejsebillet} for local transport
+\end{itemize}
+
+\subsection*{\faIcon{bed} Accommodation}
+
+\textit{Recommendations (~100 EUR/night):}
+\begin{itemize}[leftmargin=2em, itemsep=0.2em]
+    \item \textbf{Four Points Flex by Sheraton} — Plusbus line 2 stops in front
+    \item \textbf{B\&B Hotel Aalborg} — Central, Plusbus line 2 stops in front
+\end{itemize}
+
+\vspace{1em}
+
+% ============================================================================
+% COMMITTEES
+% ============================================================================
+\section*{\faIcon{users} Committees}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsection*{Scientific Committee}
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item Stefano Bianchini (Strasbourg, FR)
+    \item Jessica Birkholz (Bremen, DE)
+    \item Giacomo Damioli (Strasbourg, FR)
+    \item Björn Jindra (CBS, DK)
+    \item Lili Wang (UNU-MERIT, NL)
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsection*{Local Organizing Committee}
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item Roman Jurowetzki (AAU \& CAISA, DK)
+    \item Milad Abbasiharofteh (AAU, DK)
+    \item Eskil Andersen (AAU, DK)
+    \item Primoz Konda (AAU, DK)
+    \item Hamid Bekamiri (AAU, DK)
+\end{itemize}
+\end{minipage}
+
+\vspace{1.5em}
+
+% ============================================================================
+% CONTACT
+% ============================================================================
+\section*{\faIcon{envelope} Contact}
+
+\begin{center}
+\begin{tabular}{ll}
+Roman Jurowetzki & \href{mailto:roman@business.aau.dk}{roman@business.aau.dk} \\
+Eskil Andersen & \href{mailto:eoa@business.aau.dk}{eoa@business.aau.dk} \\
+Maja Vemmelund Rasmussen & \href{mailto:mvr@adm.aau.dk}{mvr@adm.aau.dk} \\
+\end{tabular}
+\end{center}
+
+\end{document}
