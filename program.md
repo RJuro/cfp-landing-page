@@ -17,7 +17,7 @@ Mette Vinther Larsen (Head of Business School, Aalborg University Business Schoo
 Focus: Outline of the plan and focus areas for the workshop.
 09:20 – 10:50 | Session 1: Methods I (Plenum)
 Location: Pitch-area
-Chair: Stefano Bianchini
+Chair: Primoz Konda (covering for Stefano Bianchini – sick)
 Format: 15 min talk + 5 min Discussant 1 + 5 min Discussant 2 + 5 min Audience Q&A.
 09:20 – 09:50
 Paper: LLMs as Economic Measurement Tools: A Framework for Multi-Label Job Posting Classification
@@ -39,21 +39,21 @@ Parallel Sessions
 Locations: Track A in Lab | Track B in Meeting Room A.314 (3rd Floor)
 Track A: Web Data & Analysis
 Location: Innovation Lab
-Chair: Björn Jindra
+Chair: Giacomo Damioli (covering for Björn Jindra – sick)
 11:10 – 11:30 | Sebastian Schmidt (University of Salzburg)
 Employing LLMs and Organisational Web Data for Innovation Research — the WebAI Paradigm
 Discussant: Leonardo Castro-Gonzalez
 11:30 – 11:50 | Leonardo Castro-Gonzalez (University of Bristol)
 An Atlas of Economic Activities in the UK: Tapping into Web Archives for Social Science Research
-Discussant: Zhang Shiyun
-11:50 – 12:10 | Zhang Shiyun (Beijing Academy of Science and Technology)
+Discussant: Suyan Wu
+11:50 – 12:10 | Suyan Wu (Beijing Academy of Science and Technology)
 A Study of Competitive Dynamics Analysis Report Generation Aided by LLMs
 Discussant: Sebastian Schmidt
 12:10 – 12:15 | Brief Wrap-up (Quick Q&A / Synthesis)
 Track B: Spillovers & Diffusion
 Location: Meeting Room A.314 (3rd Floor)
 Chair: Eskil Andersen
-11:10 – 11:30 | Tobias Buchmann (ZSW)
+11:10 – 11:30 | Tobias Buchmann (ZSW) [Online Presentation]
 Extracting Innovation and Cost Metrics for Synthetic Fuels Using LLMs: A Scalable Pipeline
 Discussant: Saverio Barabuffi
 11:30 – 11:50 | Saverio Barabuffi (Scuola Superiore Sant’Anna)
@@ -61,7 +61,7 @@ Inter-regional Public Knowledge Spillovers and Patenting Performance
 Discussant: Johan Lausen
 11:50 – 12:10 | Johan Lausen (University of Copenhagen - IFRO)
 A LLM Analysis of European Environmental Policy Diffusion Networks
-Discussant: Tobias Buchmann
+Discussant: Tobias Buchmann [Online]
 12:10 – 12:15 | Brief Wrap-up (Quick Q&A / Synthesis)
 
 Lunch & Keynote
@@ -94,12 +94,10 @@ Participants rotate between stations every 15 minutes.
 Speaker: Roman Jurowetzki 
 
 Day 1 Evening Social
-17:30 | Reception
-Location: CREATE Building, Aalborg Central Waterfront
-Address: Rendsburggade 14, 9000 Aalborg, Denmark
-Reservation: AAU or MASSHINE 
-18:40 | Walk to restaurant (~20 min)
-19:00 | Dinner
+15:45 – 16:45 | On-site reception & social (stay at Innovate after Methods Fair)
+Location: Innovate building
+Note: We'll stay on-site after the Methods Fair, then split up after ~45–60 minutes and regroup for dinner.
+19:00 | Dinner (meet at the restaurant)
 Location: Restaurant Textur 
 Address: Østre Havnegade 28, Aalborg
 
@@ -158,7 +156,7 @@ Chair: Jessica Birkholz
 13:00 – 13:30 | Erik Lang (Norwegian School of Economics)
 The Imitation Game: A Longitudinal Study of the Imitation–Performance Relationship in S&P 500 Firms
 Discussants: Jessica Birkholz & Milad Abbasiharofteh
-13:30 – 14:00 | Kevin Michoud (University of Strasbourg)
+13:30 – 14:00 | Kevin Michoud (University of Strasbourg) — TBC (illness)
 Using Large Language Models to Analyze the Impact of Advanced Digital Technologies on SDGs
 Discussant: Milad Abbasiharofteh
 14:00 – 14:30 | Christian Nielsen (Aalborg University)
