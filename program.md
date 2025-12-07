@@ -17,7 +17,7 @@ Mette Vinther Larsen (Head of Business School, Aalborg University Business Schoo
 Focus: Outline of the plan and focus areas for the workshop.
 09:20 – 10:50 | Session 1: Methods I (Plenum)
 Location: Pitch-area
-Chair: Primoz Konda (covering for Stefano Bianchini – sick)
+ Chair: Primoz Konda (covering for Stefano Bianchini)
 Format: 15 min talk + 5 min Discussant 1 + 5 min Discussant 2 + 5 min Audience Q&A.
 09:20 – 09:50
 Paper: LLMs as Economic Measurement Tools: A Framework for Multi-Label Job Posting Classification
@@ -39,7 +39,7 @@ Parallel Sessions
 Locations: Track A in Lab | Track B in Meeting Room A.314 (3rd Floor)
 Track A: Web Data & Analysis
 Location: Innovation Lab
-Chair: Giacomo Damioli (covering for Björn Jindra – sick)
+ Chair: Giacomo Damioli (covering for Björn Jindra)
 11:10 – 11:30 | Sebastian Schmidt (University of Salzburg)
 Employing LLMs and Organisational Web Data for Innovation Research — the WebAI Paradigm
 Discussant: Leonardo Castro-Gonzalez
@@ -156,7 +156,7 @@ Chair: Jessica Birkholz
 13:00 – 13:30 | Erik Lang (Norwegian School of Economics)
 The Imitation Game: A Longitudinal Study of the Imitation–Performance Relationship in S&P 500 Firms
 Discussants: Jessica Birkholz & Milad Abbasiharofteh
-13:30 – 14:00 | Kevin Michoud (University of Strasbourg) — TBC (illness)
+13:30 – 14:00 | Kevin Michoud (University of Strasbourg) — TBC
 Using Large Language Models to Analyze the Impact of Advanced Digital Technologies on SDGs
 Discussant: Milad Abbasiharofteh
 14:00 – 14:30 | Christian Nielsen (Aalborg University)
